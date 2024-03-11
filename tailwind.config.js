@@ -4,6 +4,9 @@ module.exports = {
     theme: {
         extend: {},
     },
-    plugins: ['postcss-import',],
+    plugins: [require("@catppuccin/tailwindcss")({
+        prefix:"cat",
+        defaultFlavour: "mocha"
+    })],
 }
 
