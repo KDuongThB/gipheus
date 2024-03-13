@@ -2,7 +2,7 @@
     <form class="mx-auto py-5 max-w-md">
         <label for="default-search" class="mb-2 font-medium text-sm text-text sr-only">Search</label>
         <div class="relative">
-            <!-- search logo -->
+            <!--! search logo -->
             <div class="absolute inset-y-0 flex items-center pointer-events-none ps-3 start-0">
                 <svg class="w-4 h-4 text-subtext0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 20 20">
@@ -10,13 +10,14 @@
                         d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                 </svg>
             </div>
-            <!-- search box -->
+            <!--! search box -->
             <input type="search" placeholder="Search for GIFs"
-                class="block border-mauve bg-mantle p-4 rounded-full w-full text-sm text-text placeholder-subtext1 ps-10 focus:ring-red focus:red"
-                required #gif (keydown.enter)="searchGif($event, gif.value)"/>
+                class="block bg-mantle border-2 border-blue focus:border-sky p-4 rounded-full w-full text-sm text-text placeholder-surface0 ps-10"
+                required #term (keyup)="searchGif($event, term.value)"/>
             <button type="submit"
-                class="bottom-2.5 absolute bg-mauve hover:bg-lavender px-3 py-1 rounded-full text-base text-sm end-2.5 focus:ring-4 focus:outline-none focus:ring-sky font-medium"
-                (click)="searchGif($event, gif.value)"> Search
+                class="bottom-3.5 end-3.5 absolute bg-mauve hover:bg-lavender px-3 py-1 rounded-full text-base text-sm focus:ring-4 focus:outline-none focus:ring-blue font-medium"
+                (click)="searchGif($event, term.value)"> 
+                Search!
             </button>
         </div>
     </form>

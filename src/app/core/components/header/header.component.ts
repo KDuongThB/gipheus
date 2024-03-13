@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { KeyValue } from '@angular/common';
 import { ModalService } from '../../../services/modal.service';
+import { DataService } from '../../../services/data.service';
 
 @Component({
     selector: 'app-header',
@@ -8,7 +9,7 @@ import { ModalService } from '../../../services/modal.service';
     styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
-    constructor(public modal: ModalService) {
+    constructor(public modal: ModalService, private dataService: DataService) {
 
     }
     ngOnInit(): void {
@@ -17,7 +18,8 @@ export class HeaderComponent implements OnInit {
 
     // @Input({ required: true }) userImg: string = '';
     //! Navigation items
-    navList = {"Home" : "Home", "Not Home": "", "Popular": "", "Favorite": ""}
+    navList = ["Home", "Popular", "About"]
+    
     onCompare(_left: KeyValue<any, any>, _right: KeyValue<any, any>): number {
         return 0;
     }
@@ -26,7 +28,5 @@ export class HeaderComponent implements OnInit {
         $event.preventDefault() 
         this.modal.toggleModal('auth')
     }
-
-    
 
 }

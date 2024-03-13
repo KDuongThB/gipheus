@@ -1,19 +1,45 @@
 <div class="gifs">
-    <div class="gif" *ngFor="let gif of gifs ">
-        <img [src]="gif.images.downsized.url | safe" frameborder="0" class="py-2 giphy-embed" alt="gif">
-        <div class="">
-            <!-- dropdown arrow -->
-            <div>
+    <!--! Gifs -->
+    <div class="gif container py-2 px-4" *ngFor="let gif of gifs">
+        <a href="{{gif.url}}" target=”_blank”>
+            <img [src]="gif.images.downsized.url | safe" class="block" placeholder="gif" ng-click="">
+        </a>
+        <div class="relative overflow-hidden w-[250px]">
+            <!--! checkbox to open dropdown -->
+            <input type="checkbox" class="peer absolute top-0 inset-x-0 w-full h-12 opacity-0 z01 cursor-pointer" />
+            <!--! title -->
+            <div class="h-12 px-2 py-2 pr-4 rounded-lg">
+                <h2 class="text-text font-semibold text-sm" heading> {{ gif.title }} </h2>
+            </div>
+            <!--! dropdown arrow -->
+            <div class="absolute top-4 right-0 transition-transform duration-500 rotate-0 peer-checked:rotate-180 pl-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="white" class="w-6 h-6">
+                    stroke="white" class="flex w-4 h-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
             </div>
-            <!-- content -->
-            <p class="text-text" class="font-semibold text-text"> Title: {{ gif.title}} </p>
-            <p class="text-text" class="font-light text-sm text-subtext0"> User: {{ gif.username}} </p>
-            <p class="text-text" class="font-light text-sm text-subtext0"> Upload time: {{ gif.import_datetime | date:
-                'medium' }} </p>
+            <!--! content -->
+            <div class="overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-40">
+                <div class="px-2">
+                    <p class="text-text" class="font-light text-sm text-subtext0"></p>
+                    <p class="font-light text-sm text-subtext0">Uploaded by: 
+                        <a 
+                        class="text-sapphire hover:text-lavender" 
+                        href="{{gif.user?.profile_url}}" target=”_blank”>
+                            {{ gif.username }} 
+                        </a> 
+                    </p>
+                    <p class="font-light text-sm text-subtext0">Rating: 
+                        <a 
+                        class="text-red hover:text-flamingo"
+                        href="https://en.wikipedia.org/wiki/Motion_Picture_Association_film_rating_system#Ratings">
+                            {{gif.rating | uppercase}}
+                        </a> 
+                    </p>
+                    <p class="font-light text-sm text-subtext0"> Upload time: {{ gif.import_datetime |
+                        date: 'medium' }} </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

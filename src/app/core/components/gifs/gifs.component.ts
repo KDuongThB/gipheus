@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DataService } from '../../../services/data.service';
-import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-gifs',
