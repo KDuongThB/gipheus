@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
     }
 
-    @Input({ required: true }) userImg: string = '';
+    // @Input({ required: true }) userImg: string = '';
     //! Navigation items
     navList = {"Home" : "Home", "Not Home": "", "Popular": "", "Favorite": ""}
     onCompare(_left: KeyValue<any, any>, _right: KeyValue<any, any>): number {
