@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../services/data.service';
 import { FormsModule } from '@angular/forms';
-import { Subject, Subscription, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 import { Input } from '@angular/core';
 
 @Component({
     selector: 'app-search',
     templateUrl: './search.component.html',
-    styleUrl: './search.component.css'
+    styleUrl: './search.component.css',
 })
 export class SearchComponent implements OnInit {
 
@@ -23,10 +23,10 @@ export class SearchComponent implements OnInit {
             .pipe(
                 debounceTime(500), // wait 500ms after the last event before emitting last event
                 distinctUntilChanged()
-                ) // only emit if value is different from previous value
-            .subscribe((model) => {
+            ) // only emit if value is different from previous value
+            .subscribe(model => {
                 this.txtQuery = model;
-                // search after debounce
+                // Call your function which calls API or do anything you would like do after debounce
                 this.search(this.txtQuery);
             })
     }

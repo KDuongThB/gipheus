@@ -16,14 +16,16 @@ import { FormsModule } from '@angular/forms';
         GifsComponent,
         SearchComponent,
         SafePipe,
+
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
     ],
-    providers: [],
+    providers: [
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

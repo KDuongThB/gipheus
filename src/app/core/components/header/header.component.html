@@ -2,24 +2,14 @@
     <!-- logo and navigation items-->
     <div class="flex gap-10">
         <a href="/">
-            <img width="180" src="/assets/logo.png" alt="gipheus-logo" class="opacity-50 hover:opacity-100">
+            <img width="180" src="/assets/logo.png" alt="gipheus-logo" class="opacity-75 hover:opacity-100">
         </a>
         <ul class="flex items-center" *ngFor="let item of navList">
-            <li class="text-text cursor-pointer font-light text-lg hover:text-sky transition-[1s]">
-                <a href="">{{ item }}</a>
+            <li class="text-text font-light text-xl hover:text-sky opacity-75 hover:opacity-100 cursor-pointer transition-[1s]">
+                
+                <a *ngIf="item.toString()=='About'; else elseBlock" href="https://github.com/KDuongThB/gipheus" target="_blank">{{ item }}</a>
+                <ng-template #elseBlock> <a href="">{{ item }}</a></ng-template>
             </li>
         </ul>
-    </div>
-
-    <!--! Welcome User -->
-    <div class="flex gap-4 text-text items-center">
-        <div class="flex items-center gap-2">
-
-            <span class="hover:text-blue">Welcome User!</span>
-        </div>
-        &nbsp;
-        <!--! login button -->
-        <!-- <a href="#" (click)="openModal($event)">Login </a> -->
-        
     </div>
 </header>

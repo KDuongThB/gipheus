@@ -1,7 +1,8 @@
 .gifs {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    max-width: 1920px;
+    min-width: 1200px;
+    max-width: 1900px;
     width: 90%;
     margin: 0 auto;
 }
@@ -11,6 +12,6 @@
     
 }
 
-.info {
-
+.gif-description {
+    @apply font-light text-sm text-subtext0
 }
