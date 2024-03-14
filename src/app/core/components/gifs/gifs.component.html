@@ -4,11 +4,15 @@
     class="gif p-2 m-2 rounded-xl 
     border border-base hover:border-sapphire hover:bg-mantle" 
     *ngFor="let gif of gifs">
-        <a href="{{gif.url}}" target=”_blank” title="click to open Giphy">
-            <img [src]="gif.images.downsized.url | safe" class="block rounded-lg" placeholder="gif" ng-click="">
-        </a>
-        <div class="relative overflow-hidden max-w-250">
 
+    <!-- ! The GIF itself -->
+        <a href="{{gif.url}}" target=”_blank” title="click to open Giphy">
+            <img [src]="gif.images.downsized.url | safe" 
+            class="block rounded-lg min-w-96" 
+            placeholder="gif">
+        </a>
+
+        <div class="relative overflow-hidden">
             <!--! checkbox to open dropdown -->
             <input type="checkbox" class="peer absolute top-0 inset-x-0 w-full h-10 opacity-0 z01 cursor-pointer" title="click to expand"/>
 

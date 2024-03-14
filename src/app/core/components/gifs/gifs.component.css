@@ -6,11 +6,6 @@
     width: 90%;
     margin: 0 auto;
 }
-.gif iframe {
-    width: 25%;
-    max-width: 250px;
-    
-}
 
 .gif-description {
     @apply font-light text-sm text-subtext0
