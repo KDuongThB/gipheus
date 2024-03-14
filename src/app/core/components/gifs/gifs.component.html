@@ -1,23 +1,31 @@
-<div class="gifs">
+<div class="gifs rounded-xl">
     <!--! Gifs -->
-    <div class="gif py-2 px-2" *ngFor="let gif of gifs">
+    <div 
+    class="gif p-2 m-2 rounded-xl 
+    border border-base hover:border-sapphire hover:bg-mantle" 
+    *ngFor="let gif of gifs">
         <a href="{{gif.url}}" target=”_blank” title="click to open Giphy">
-            <img [src]="gif.images.downsized.url | safe" class="block" placeholder="gif" ng-click="">
+            <img [src]="gif.images.downsized.url | safe" class="block rounded-lg" placeholder="gif" ng-click="">
         </a>
         <div class="relative overflow-hidden max-w-250">
+
             <!--! checkbox to open dropdown -->
-            <input type="checkbox" class="peer absolute top-0 inset-x-0 w-full h-8 opacity-0 z01 cursor-pointer" title="click to expand"/>
-            <!--! GIF title -->
-            <div class="h-8 pt-2 py-2 rounded-full">
-                <h2 class="text-text font-semibold text-sm" heading> {{ gif.title }} </h2>
-            </div>
+            <input type="checkbox" class="peer absolute top-0 inset-x-0 w-full h-10 opacity-0 z01 cursor-pointer" title="click to expand"/>
+
             <!--! dropdown arrow -->
-            <div class="absolute top-2.5 right-0 transition-transform duration-500 rotate-0 peer-checked:rotate-180 pl-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="white" class="flex w-4 h-4">
+            <div class="absolute top-3 right-0 transition-transform duration-500 rotate-0 peer-checked:rotate-180">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="#74c7ec" class="flex w-3.5 h-3.5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
             </div>
+            <!--! GIF title -->
+            <div class="h-12 pr-3 py-2 rounded-full">
+                <h2 class="text-text font-semibold text-sm" heading> {{ gif.title }} </h2>
+            </div>
+
+            
+
             <!--! content -->
             <div class="overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-40">
                     <p class="gif-description">

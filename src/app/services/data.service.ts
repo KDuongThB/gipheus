@@ -14,7 +14,7 @@ export class DataService {
     private searchTerms = new Subject<string>();
 
     getTrendingGifs() {
-        return this.http.get(`https://api.giphy.com/v1/gifs/trending?api_key=${environment.apiKey}&limit=50`)
+        return this.http.get(`https://api.giphy.com/v1/gifs/trending?api_key=${environment.apiKey}&limit=48`)
             .subscribe((response: any) => {
                 if (response && response.data) {
                     this.gifs.next(response.data);
@@ -23,7 +23,7 @@ export class DataService {
     }
 
     searchGifs(gifName: string) {
-            this.http.get(`https://api.giphy.com/v1/gifs/search?q=${gifName}&api_key=${environment.apiKey}&limit=50`)
+            this.http.get(`https://api.giphy.com/v1/gifs/search?q=${gifName}&api_key=${environment.apiKey}&limit=48`)
             .subscribe((response: any) => {
                 if (response && response.data) {
                     console.log('SEARCH!')

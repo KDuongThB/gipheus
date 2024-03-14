@@ -1,5 +1,5 @@
-<div class="container">
-    <form class="mx-auto py-5 max-w-md">
+<div class="">
+    <form class="mx-auto py-10 max-w-md">
         <label for="default-search" class="mb-2 font-medium text-sm text-text sr-only">Search</label>
         <div class="relative">
             <!--! search logo -->
@@ -12,7 +12,10 @@
             </div>
             <!--! search box -->
             <input type="default-search" placeholder="Search for GIFs"
-                class="block bg-mantle border-2 border-blue focus:border-mantle p-4 rounded-full w-full text-sm text-text placeholder-surface1 ps-10"
+                class="bg-mantle border border-blue 
+                hover:border-sapphire hover:bg-crust focus:bg-crust
+                block p-4 ps-10 rounded-full w-full 
+                text-sm text-text placeholder-surface1"
                 required 
                 [(ngModel)]="txtQuery" (ngModelChange)="onFieldChange($event)" name="something"
                 />

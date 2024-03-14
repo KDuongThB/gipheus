@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../services/data.service';
-import { FormsModule } from '@angular/forms';
 import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 import { Input } from '@angular/core';
 
@@ -19,6 +18,7 @@ export class SearchComponent implements OnInit {
     }
 
     constructor(private dataService: DataService) {
+        //* Add debounce time to avoid rapid firing search API
         this.txtQueryChanged
             .pipe(
                 debounceTime(500), // wait 500ms after the last event before emitting last event
@@ -35,11 +35,10 @@ export class SearchComponent implements OnInit {
 
     }
 
+    //* Search function
     public search(searchTerm: string) {
-
         if (searchTerm !== '') {
             this.dataService.searchGifs(searchTerm)
         }
-        this.dataService.getTrendingGifs()
     }
 }
