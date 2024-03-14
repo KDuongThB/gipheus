@@ -5,9 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/components/header/header.component';
 import { GifsComponent } from './core/components/gifs/gifs.component';
-import { UserModule } from './user/user.module';
 import { SearchComponent } from './core/components/search/search.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -20,8 +20,8 @@ import { SafePipe } from './pipes/safe.pipe';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        UserModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

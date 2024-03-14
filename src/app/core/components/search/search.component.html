@@ -13,12 +13,14 @@
             <!--! search box -->
             <input type="search" placeholder="Search for GIFs"
                 class="block bg-mantle border-2 border-blue focus:border-sky p-4 rounded-full w-full text-sm text-text placeholder-surface0 ps-10"
-                required #term (keyup)="searchGif($event, term.value)"/>
-            <button type="submit"
+                required 
+                [(ngModel)]="txtQuery" (ngModelChange)="onFieldChange($event)" name="something"
+                />
+            <!-- <button type="submit"
                 class="bottom-3.5 end-3.5 absolute bg-mauve hover:bg-lavender px-3 py-1 rounded-full text-base text-sm focus:ring-4 focus:outline-none focus:ring-blue font-medium"
-                (click)="searchGif($event, term.value)"> 
+                > 
                 Search!
-            </button>
+            </button> -->
         </div>
     </form>
 </div>

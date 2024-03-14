@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../services/data.service';
-
+import { FormsModule } from '@angular/forms';
+import { Subject, Subscription, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { Input } from '@angular/core';
 
 @Component({
     selector: 'app-search',
@@ -9,15 +11,32 @@ import { DataService } from '../../../services/data.service';
 })
 export class SearchComponent implements OnInit {
 
+    @Input() txtQuery: string = ''; // bind this to input with ngModel
+    txtQueryChanged: Subject<string> = new Subject<string>();
 
-    constructor(private dataService: DataService) { }
-
-    ngOnInit(): void {
-        
+    onFieldChange(query: string) {
+        this.txtQueryChanged.next(query);
     }
 
-    searchGif($event: Event, searchTerm: string) {
-        $event.preventDefault()
+    constructor(private dataService: DataService) {
+        this.txtQueryChanged
+            .pipe(
+                debounceTime(500), // wait 1 sec after the last event before emitting last event
+                distinctUntilChanged()
+                ) // only emit if value is different from previous value
+            .subscribe(model => {
+                this.txtQuery = model;
+                // Call your function which calls API or do anything you would like do after a lag of 1 sec
+                this.search(this.txtQuery);
+            })
+    }
+
+    ngOnInit(): void {
+
+    }
+
+    public search(searchTerm: string) {
+
         if (searchTerm !== '') {
             this.dataService.searchGifs(searchTerm)
         }
