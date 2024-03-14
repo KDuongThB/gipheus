@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { KeyValue } from '@angular/common';
-import { ModalService } from '../../../services/modal.service';
 import { DataService } from '../../../services/data.service';
 
 @Component({
@@ -9,7 +8,7 @@ import { DataService } from '../../../services/data.service';
     styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
-    constructor(public modal: ModalService, private dataService: DataService) {
+    constructor(private dataService: DataService) {
 
     }
     ngOnInit(): void {
@@ -23,10 +22,4 @@ export class HeaderComponent implements OnInit {
     onCompare(_left: KeyValue<any, any>, _right: KeyValue<any, any>): number {
         return 0;
     }
-    
-    openModal($event: Event) {
-        $event.preventDefault() 
-        this.modal.toggleModal('auth')
-    }
-
 }

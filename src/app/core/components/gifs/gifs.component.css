@@ -1,10 +1,16 @@
 .gifs {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    width: 1020px;
+    max-width: 1920px;
+    width: 90%;
     margin: 0 auto;
 }
 .gif iframe {
-    width: 250px;
+    width: 25%;
+    max-width: 250px;
     
+}
+
+.info {
+
 }

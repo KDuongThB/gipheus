@@ -21,12 +21,12 @@ export class SearchComponent implements OnInit {
     constructor(private dataService: DataService) {
         this.txtQueryChanged
             .pipe(
-                debounceTime(500), // wait 1 sec after the last event before emitting last event
+                debounceTime(500), // wait 500ms after the last event before emitting last event
                 distinctUntilChanged()
                 ) // only emit if value is different from previous value
-            .subscribe(model => {
+            .subscribe((model) => {
                 this.txtQuery = model;
-                // Call your function which calls API or do anything you would like do after a lag of 1 sec
+                // search after debounce
                 this.search(this.txtQuery);
             })
     }
@@ -40,5 +40,6 @@ export class SearchComponent implements OnInit {
         if (searchTerm !== '') {
             this.dataService.searchGifs(searchTerm)
         }
+        this.dataService.getTrendingGifs()
     }
 }
