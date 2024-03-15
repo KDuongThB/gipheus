@@ -2,13 +2,13 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    width: 90%;
+    width: 80%;
     margin: auto auto;
 }
 
 .gif {
     flex: 1 0 22rem;
-    margin: 0.25rem;
+    margin: 0;
     animation: fadeUp 1s;
 }
 
@@ -20,5 +20,14 @@
 }
     
 .gif p {
-    @apply font-light text-sm text-subtext0
+    @apply font-light text-subtext0 text-sm
+}
+
+/* gif title */
+.gif .title-box {
+    @apply flex max-h-12 pr-3 pt-2
+}
+
+.gif h2 {
+    @apply text-lavender font-medium
 }

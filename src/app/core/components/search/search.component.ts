@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../../services/data.service';
+import { DataService } from '../../services/data.service';
 import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 import { Input } from '@angular/core';
 

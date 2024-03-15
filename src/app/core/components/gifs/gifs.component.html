@@ -25,14 +25,14 @@
             <!--! dropdown arrow -->
             <div class="absolute top-3 right-0 
             transition-transform duration-500 rotate-0 peer-checked:rotate-180">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                    stroke="#74c7ec" class="flex w-3.5 h-3.5">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                    stroke="#74c7ec" class=" w-3.5 h-3.5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
             </div>
             <!--! GIF title -->
-            <div class="flex max-h-12 pr-3 pt-2">
-                <h2 class="text-peach font-medium text-mauve" heading> {{ gif.title }} </h2>
+            <div class="title-box">
+                <h2> {{ gif.title }} </h2>
             </div>
 
             <!--! content -->
@@ -41,14 +41,14 @@
             max-h-0 peer-checked:max-h-40">
                     <p>
                         Uploaded by: 
-                        <a class="text-sapphire hover:text-lavender" 
+                        <a class="text-sapphire hover:text-sky" 
                         href="{{gif.user?.profile_url}}" target=”_blank”>
                             {{ gif.username }} 
                         </a> 
                     </p>
                     <p>Rating: 
                         <a 
-                        class="text-red hover:text-flamingo"
+                        class="text-mauve hover:lavender"
                         href="https://en.wikipedia.org/wiki/Motion_Picture_Association_film_rating_system#Ratings">
                             {{gif.rating | uppercase}}
                         </a> 
